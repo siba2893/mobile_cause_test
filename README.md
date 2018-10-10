@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application made in Ruby 2.5.1 and Rails 5.2 for the Mobile Cause team.
 
-Things you may want to cover:
+To run this application locally you must clone this repository:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Install all gems using the command <bundle install>
+- Run the migrations to create the database schema <rake db:migrate>
+- To be able to use it you require to confirm your email when you create your account. 
+  - For that you need to set the enviroment variables.
+  - Run the command <bundle exec figaro install> this will create inside <config/> a file with the name application.yml
+  - Set the <email_username> and <email_password> variables inside the doc.
+- Run the server <rails s>
