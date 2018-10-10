@@ -2,8 +2,17 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.modal').modal();
 
-    setTimeout(function () {
-        $('#global-alert').fadeOut();
-        $('#global-notice').fadeOut();
-    }, 3000);
+    dismissAlerts();
 });
+
+function addErrors(html){
+    var alertContainer = $('#alert-container');
+    alertContainer.append(html)
+    dismissAlerts();
+}
+
+function dismissAlerts(){
+    setTimeout(function () {
+        $('.alert-box').fadeOut();
+    }, 5000);
+}

@@ -1,5 +1,11 @@
+<% if @errors.empty? %>
 $('.notes-list').prepend("<%= escape_javascript(render 'notes/note', note: @note).html_safe %>");
 
-$('form :input').each(function(){
-    $(this).val('').attr('checked',false).attr('selected',false);
+$('form :input').each(function () {
+    $(this).val('').attr('checked', false).attr('selected', false);
 });
+<% else %>
+  <% @errors.each do |error| %>
+    addErrors("<%= escape_javascript(render 'shared/alert_message', msg: error, color: 'red').html_safe %>")
+  <% end %>
+<% end %>

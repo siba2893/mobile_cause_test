@@ -1,4 +1,15 @@
-var elem = $('.note-<%= @note.id %>');
 var instance = M.Modal.getInstance($('#form_modal'));
+
+<% if @errors.empty? %>
+
+var elem = $('.note-<%= @note.id %>');
 elem.replaceWith("<%= escape_javascript(render 'notes/note', note: @note).html_safe %>")
+
+<% else %>
+  <% @errors.each do |error| %>
+    addErrors("<%= escape_javascript(render 'shared/alert_message', msg: error, color: 'red').html_safe %>")
+  <% end %>
+<% end %>
+
 instance.close();
+

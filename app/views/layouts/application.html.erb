@@ -16,25 +16,15 @@
 
 <%= render 'shared/header' %>
 <div class="container">
-  <% if notice %>
-      <div class="row" id="global-notice">
-        <div class="col s12">
-          <div class="card-panel teal">
-            <span class="white-text"><%= notice %></span>
-          </div>
-        </div>
-      </div>
-  <% end %>
+  <div id="alert-container">
+    <% if notice %>
+        <%= render 'shared/alert_message', msg: notice, color: 'teal' %>
+    <% end %>
 
-  <% if alert %>
-      <div class="row" id="global-alert">
-        <div class="col s12">
-          <div class="card-panel red">
-            <span class="white-text"><%= alert %></span>
-          </div>
-        </div>
-      </div>
-  <% end %>
+    <% if alert %>
+        <%= render 'shared/alert_message', msg: alert, color: 'red' %>
+    <% end %>
+  </div>
 
   <%= yield %>
 </div>

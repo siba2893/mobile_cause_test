@@ -1,1 +1,7 @@
-$('.note-<%= @removed %>').remove();
+<% if @errors.empty? %>
+$('.note-<%= @note.id %>').remove();
+<% else %>
+  <% @errors.each do |error| %>
+    addErrors("<%= escape_javascript(render 'shared/alert_message', msg: error, color: 'red').html_safe %>")
+  <% end %>
+<% end %>
