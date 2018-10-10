@@ -1,0 +1,5 @@
+$('.notes-list').prepend("<%= escape_javascript(render 'notes/note', note: @note).html_safe %>");
+
+$('form :input').each(function(){
+    $(this).val('').attr('checked',false).attr('selected',false);
+});

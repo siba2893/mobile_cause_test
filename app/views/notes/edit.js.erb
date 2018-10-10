@@ -1,0 +1,8 @@
+var elem = $('#form_modal');
+elem.html('')
+    .append("<%= escape_javascript(render 'notes/edit_modal', note: @note).html_safe %>");
+
+elem.find('form label').addClass('active');
+
+var instance = M.Modal.getInstance(elem);
+instance.open();

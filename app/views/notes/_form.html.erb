@@ -1,0 +1,18 @@
+<div class="row">
+  <%= form_for note, remote: true, class: 'col s8 offset-s2' do |f| %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'validate', placeholder: 'Spooky Oktober' %>
+        </div>
+        <div class="input-field col s12">
+          <%= f.text_area :content, class: 'materialize-textarea' %>
+          <%= f.label :content %>
+        </div>
+
+        <div class="input-field col s12">
+          <%= f.submit 'Submit', class: 'btn pink lighten-1 z-depth-0' %>
+        </div>
+      </div>
+  <% end %>
+</div>

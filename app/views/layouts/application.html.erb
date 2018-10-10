@@ -15,15 +15,29 @@
 <body>
 
 <%= render 'shared/header' %>
+<div class="container">
+  <% if notice %>
+      <div class="row" id="global-notice">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text"><%= notice %></span>
+          </div>
+        </div>
+      </div>
+  <% end %>
 
-<% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+  <% if alert %>
+      <div class="row" id="global-alert">
+        <div class="col s12">
+          <div class="card-panel red">
+            <span class="white-text"><%= alert %></span>
+          </div>
+        </div>
+      </div>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

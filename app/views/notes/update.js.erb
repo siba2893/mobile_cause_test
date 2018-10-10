@@ -1,0 +1,13 @@
+var elem = $('.note-<%= @note.id %>');
+var prev = elem.prev();
+var instance = M.Modal.getInstance($('#form_modal'));
+
+if (prev.length > 0) {
+    prev.after("<%= escape_javascript(render 'notes/note', note: @note).html_safe %>");
+} else {
+    prev = elem.parent();
+    prev.append("<%= escape_javascript(render 'notes/note', note: @note).html_safe %>")
+}
+
+elem.remove();
+instance.close();
